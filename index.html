@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
         <title>[Diary Web] by GoldJu</title>
         <!--***Jua Font***-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,8 +16,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
         <!--font-family: 'Nanum Myeongjo', serif;-->
         <!--***CSSs***-->
-        <link rel="stylesheet" href="css/calendar.css">
+        <script src="https://kit.fontawesome.com/52d6eb9e27.js" crossorigin="anonymous"></script> <!--fontawesome-->
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/calendar.css">
+        <link rel="stylesheet" href="css/d-day.css">
+        <link rel="stylesheet" href="css/options.css">
+        <link rel="stylesheet" href="css/to-do.css">
+        <link rel="stylesheet" href="css/memo.css">
         <!--**********-->
     </head>
     <body>
@@ -25,45 +31,89 @@
         <div id="main">
             <div id="leftDiv">
                 <div id="calendar_main">
-                    <table id="calendar" border="3" align="center" style="border-color:#f19cb5">
+                    <table id="calendar_" align="center">
                         <tr><!--label은 마우스로 클릭을 편하게 해줌-->
-                            <td><label onclick="prevCalendar()"><</label></td>
+                            <td id="arrow_cd"><label id="label_cd" onclick="prevCalendar()"><</label></td>
                             <td id="tbCalendarYM" align="center" colspan="5" height="50px">
                                 yyyy년 m월</td>
-                            <td>
-                            <label onclick="nextCalendar()">>
-                            </label></td>
+                            <td id="arrow_cd"><label id="label_cd" onclick="nextCalendar()">></label></td>
                         </tr>
                         <tr>
-                            <td align="center" font color ="#F79DC2">일</td>
-                            <td align="center">월</td>
-                            <td align="center">화</td>
-                            <td align="center">수</td>
-                            <td align="center">목</td>
-                            <td align="center">금</td>
-                            <td align="center" font color ="skyblue">토</td>
+                            <td id="dayOfWeek" align="center" font color ="#F79DC2">일</td>
+                            <td id="dayOfWeek" align="center">월</td>
+                            <td id="dayOfWeek" align="center">화</td>
+                            <td id="dayOfWeek" align="center">수</td>
+                            <td id="dayOfWeek" align="center">목</td>
+                            <td id="dayOfWeek" align="center">금</td>
+                            <td id="dayOfWeek" align="center" font color ="skyblue">토</td>
                         </tr> 
                     </table>
                 </div>
-                <div id="d-day_main">D-day</div>
+                <div id="d-day_main">
+                    <div class="rgy-dday">
+                        <div id="d-dayHeader">
+                            <div id="d-dayTitle">D-day</div>
+                            <div id="dday-inputDiv">
+                                <input id="ddayInputDate" type="text" class="dday-input" placeholder="20XX-XX-XX">
+                                <input id="ddayInputContent" type="text" class="dday-input" placeholder="D-day이벤트를 입력해주세요.">
+                            </div>
+                            <div id="d-dayPlusBtn">+</div>
+                        </div>
+                        <div id="d-dayScroll">
+                        </div>
+                    </div>
+                </div>
                 <div id="options">
-                    <div id="option">옵션</div>
-                    <div id="shop">상점</div>
-                    <div id="plusMemo">메모추가</div>
+                    <div id="option">
+                        <i class="fa-solid fa-gear fa-3x"></i>
+                    </div>
+                    <!-- <div id="shop">상점</div> -->
+                    <div id="plusMemo">
+                        <i class="fa-solid fa-plus fa-3x"></i>
+                    </div>
+                    <p>*옵션들은 아직 공사중입니다*</p>
                 </div>
             </div>
             <div id="rightDiv">
-                <div id="to-do_late_main">밀린할일</div>
-                <div id="to-do_today_main">오늘할일</div>
-                <div id="to-do_everyday_main">매일할일</div>
-                <div id="to-do_everymonth_main">매달할일</div>
+                <div id="to-do_late_main">
+                    <div id="to-doInsert">
+                        <i class="fa-solid fa-square">&nbsp;</i><b>밀린할일</b>
+                        <input id="late" type="text" class="todo-input" placeholder="해야 할 일을 입력해주세요.">
+                    </div>
+                    <div id="plusLate"></div>
+                </div>
+                <div id="to-do_today_main">
+                    <div id="to-doInsert">
+                        <i class="fa-solid fa-circle">&nbsp;</i><b>오늘할일</b>
+                        <input id="today" type="text" class="todo-input" placeholder="해야 할 일을 입력해주세요.">
+                    </div>
+                    <div id="plusToday"></div>
+                </div>
+                <div id="to-do_everyday_main">
+                    <div id="to-doInsert">
+                        <i class="fa-solid fa-heart">&nbsp;</i><b>매일할일</b>
+                        <input id="everyday" type="text" class="todo-input" placeholder="해야 할 일을 입력해주세요.">
+                    </div>
+                    <div id="plusEveryday"></div>
+                </div>
+                <div id="to-do_everymonth_main">
+                    <div id="to-doInsert">
+                        <i class="fa-solid fa-star">&nbsp;</i><b>매달할일</b>
+                        <input id="everymonth" type="text" class="todo-input" placeholder="해야 할 일을 입력해주세요.">
+                    </div>
+                    <div id="plusEverymonth"></div>
+                </div>
             </div>
-        </div>
-        <div id="footer">푸터</div>
+        </div>   
         <!--***scripts***-->
+        <script src="js/main.js"></script>
         <script src="js/calendar.js" language="javascript" type="text/javascript">
             buildCalendar();//
         </script>
-        <script src="js/main.js"></script>
+        <script src="js/d-day.js"></script>
+        <script src="js/options.js"></script>
+        <script src="js/to-do.js"></script>
+        <script src="js/memo.js"></script>
+        <!--**********-->
     </body>
 </html>

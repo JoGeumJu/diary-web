@@ -1,0 +1,141 @@
+ /*Containers:row(|) / Items:column(-)*/
+#d-dayHeader{
+    display: flex;
+    background-color:  #d6aaeb6e;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom:4px;
+}
+
+#d-dayDiv{
+    display: flex;
+    flex-grow: 0;
+    padding-top:5px;
+    padding-bottom: 5px;
+    align-items: center;
+}
+/**/
+
+/*Containers:column(-) / Items:row(|)*/
+#d-dayScroll{
+    display:inline-flex;
+    flex-direction: column;
+    /*scrollProperty*/
+    width:97%;
+    height:70%;
+    padding-left:20px;
+    padding-top:10px;
+    overflow: auto;
+}
+/**/
+
+.rgy-dday {
+    width:95%;
+    height:90%;
+    padding:5px;
+    margin-top: 5px;
+    justify-content: center;
+}
+
+
+#d-dayTitle{
+    font-size: 20px;
+    padding: 5px;
+    padding-left:8px;
+    margin-top: 5px;
+}
+
+#d-dayPlusBtn{
+    font-size:20px;
+    padding:5px;
+    padding-right:12px;
+    margin-top:5px;
+    cursor: pointer;
+}
+
+.rgy-dday #dDay li {
+    padding: 2px 0;
+}
+
+.rgy-dday #dDay .ddayWord {
+    margin-right: 5px;
+}
+
+.rgy-dday #dDay .ddayColor {
+    color: #ff5544;
+}
+
+#d-dayContent{
+    padding-right: 5px;
+    height:20px;
+}
+
+#d-dayRemove{
+    display: none;
+    width:20px;
+    height:20px;
+    color:#ffffffcc
+}
+
+/* to-doInsert Properties */
+#dday-inputDiv{
+    margin-right:10vw;
+}
+
+.dday-input {
+    height: 20px;
+    padding-left: 10px;
+    padding-right: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 7px;
+    font-size: 15px;
+    background: #ffffff69;
+    color: rgb(38, 34, 41);
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+}
+
+#ddayInputDate{
+    width:95px;
+    margin-right:0px;
+    margin-left:0px;
+}
+
+#ddayInputContent{
+    width:300px;
+    margin-left:5px;
+}
+
+/**/
+
+/*hover Properties*/
+#d-dayContent:hover~#d-dayRemove{
+    display:block;
+}
+
+#d-dayRemove:hover{
+    display:block;
+    cursor: pointer;
+}
+
+/*Scroll Color Properties*/
+#d-dayScroll::-webkit-scrollbar{
+    width: 15px;
+}
+
+#d-dayScroll::-webkit-scrollbar-thumb{
+    background-color: #d6aaeb6e;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+}
+
+#d-dayScroll::-webkit-scrollbar-track{
+    background-color: rgba(57, 47, 58, 0.062);
+    border-radius: 15px;
+    box-shadow: inset 0px 0px 5px rgba(255, 255, 255, 0.411);
+}
+/**/

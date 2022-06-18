@@ -1,0 +1,142 @@
+/*Containers:row(|) / Items:column(-)*/
+#todoPlus {
+  display: flex;
+  flex-grow: 0;
+  padding-top:5px;
+  padding-bottom: 5px;
+  align-items: center;
+}
+/**/
+
+/*Containers:column(-) / Items:row(|)*/
+#plusLate {
+  display: inline-flex;
+  flex-direction: column;
+  padding-top:10px;
+}
+
+#plusToday {
+  display: inline-flex;
+  flex-direction: column;
+  padding-top:10px;
+}
+
+#plusEveryday {
+  display: inline-flex;
+  flex-direction: column;
+  padding-top:10px;
+}
+
+#plusEverymonth {
+  display: inline-flex;
+  flex-direction: column;
+  padding-top:10px;
+}
+/**/
+
+/* to-doInsert Properties */
+.todo-input {
+  height: 20px;
+  padding-left: 10px;
+  padding-right: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-left: 7px;
+  font-size: 15px;
+  background: #ffffff69;
+  color: rgb(38, 34, 41);
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+}
+/**/
+
+#plusLate {
+  padding-left: 10px;
+  padding-right: 10px;
+  /*scrollProperty*/
+  width:95%;
+  height:80%;
+  overflow: auto;
+}
+
+#plusToday {
+  padding-left: 10px;
+  padding-right: 10px;
+  /*scrollProperty*/
+  width:95%;
+  height:80%;
+  overflow: auto;
+}
+
+#plusEveryday {
+  padding-left: 10px;
+  padding-right: 10px;
+  /*scrollProperty*/
+  width:95%;
+  height:80%;
+  overflow: auto;
+}
+
+#plusEverymonth {
+  padding-left: 10px;
+  padding-right: 10px;
+  /*scrollProperty*/
+  width:95%;
+  height:80%;
+  overflow: auto;
+}
+
+#todoContent{
+    padding-right: 5px;
+    height:20px;
+}
+
+#todoRemove{
+    display: none;
+    width:20px;
+    height:20px;
+    color:#ffffffcc
+}
+
+/*hover Properties*/
+#todoContent:hover~#todoRemove{
+    display:block;
+}
+
+#todoRemove:hover{
+    display:block;
+    cursor: pointer;
+}
+/**/
+
+.fa-solid.fa-square {
+  color: rgb(239, 239, 240);
+  align-self: center;
+  justify-self: center;
+}
+
+.fa-solid.fa-circle {
+  color: rgb(239, 239, 240);
+  align-self: center;
+  justify-self: center;
+}
+
+.fa-solid.fa-heart {
+  color: rgb(239, 239, 240);
+  align-self: center;
+  justify-self: center;
+}
+
+
+.fa-solid.fa-star {
+  color: rgb(239, 239, 240);
+  align-self: center;
+  justify-self: center;
+}
+
+/*checked Properties*/
+input[type="checkbox"]:checked > .text{
+    text-decoration: line-through;
+    color:rgba(239, 239, 240, 0.575);
+}

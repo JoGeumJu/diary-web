@@ -11,37 +11,46 @@
     display: flex;
 }
 
-#footer{
-    display: flex;
-    justify-content: space-between;
+#to-doInsert{
+    display:flex;
 }
 
 /*Containers:column(-) / Items:row(|)*/
 #leftDiv{
     display: inline-flex;
     flex-direction: column;
-    width: 45%;
+    width: 45vw;
+    margin-left: 0.3vw;
 }
 
 #rightDiv{
     display: inline-flex;
     flex-direction: column;
-    width: 55%;
+    width: 55vw;
 }
 
 /*Main Properties*/
 body{
+    width:100vw;
+    height:100vh;
     margin:0px;
     font-family: 'Nanum Myeongjo', serif;
-    font-weight: bold;
     /* font-family: 'Jua', sans-serif; */
-    color: rgb(77, 77, 77);
+    color: rgb(239, 239, 240);
+    /*backgroundImageProperty*/
+    background-image: url('/images/body/moonForest.png');
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
 }
 
-/*Sub Properties*/
+#main{
+    height:97.5vh;
+}
+
+/*Sub Properties - header*/
 #header{
-    height:30px;
-    box-shadow: 0px 3px 10px -5px rgb(180, 180, 180);
+    height:2.5vh;
+    /* box-shadow: 0px 3px 10px -5px rgb(180, 180, 180); */
     font-size: 18px;
     align-items: center;
     justify-content: flex-end;
@@ -50,10 +59,108 @@ body{
 #todayDate{
     margin-left:10px;
     margin-right:10px;
+    margin-top:0.5vh;
 }
 
-#calendar{
-    width:100%;
-    height:auto;
-    padding: 10px;
+/*Sub Properties - leftDiv*/
+#calendar_main{
+    width:43.0vw;
+    height:67.5vh;
+    margin-left:0.5vw;
+    margin-right:0.5vw;
+    margin-top:0.5vw;
+    font-weight: bold;
+    /*borderProperty*/
+    border: 2px solid #d6aaeb;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+    border-bottom: none;
+    /*backgroundProperty*/
+    background-color: #00000050;
 }
+
+#d-day_main{
+    display:flex;
+    width:43.0vw;
+    height:20.5vh;
+    margin-left: 0.5vw;
+    margin-right: 1vw;
+    justify-content: center;
+    /*borderProperty*/
+    border: 2px solid #d6aaeb;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    border-top: none;
+    /*backgroundProperty*/
+    background-color: #00000050;
+}
+
+#options{
+    width:43.0vw;
+    height:7.5vh;
+    padding:0.5vw;
+    margin-bottom:0.5vw;
+    align-items: center;
+}
+
+/*Sub Properties - rightDiv*/
+#to-do_late_main{
+    width:52vw;
+    height:26.5vh;
+    padding: 1vw;
+    margin-top:0.5vw;
+    font-size: 17px;
+    box-shadow: 0px 3px 10px -9px rgb(182, 182, 182);
+    /*borderProperty*/
+    border: 2px solid #d6aaeb;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+    border-bottom: none;
+    /*backgroundProperty*/
+    background-color: #00000050;
+}
+
+#to-do_today_main{
+    width:52vw;
+    height:30.0vh;
+    padding:1vw;
+    font-size: 17px;
+    box-shadow: 0px 3px 10px -9px rgb(182, 182, 182);
+    /*borderProperty*/
+    border: 2px solid #d6aaeb;
+    border-top: none;
+    border-bottom: none;
+    /*backgroundProperty*/
+    background-color: #00000050;
+}
+
+#to-do_everyday_main{
+    width:52vw;
+    height:15.0vh;
+    padding:1vw;
+    font-size: 17px;
+    box-shadow: 0px 3px 10px -9px rgb(182, 182, 182);
+    /*borderProperty*/
+    border: 2px solid #d6aaeb;
+    border-top: none;
+    border-bottom: none;
+    /*backgroundProperty*/
+    background-color: #00000050;
+}
+
+#to-do_everymonth_main{
+    width:52vw;
+    height:16.0vh;
+    padding:1vw;
+    margin-bottom: 0.5vw;
+    font-size: 17px;
+    /*borderProperty*/
+    border: 2px solid #d6aaeb;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    border-top: none;
+    /*backgroundProperty*/
+    background-color: #00000050;
+}
+
+/*Sub Properties - another*/
