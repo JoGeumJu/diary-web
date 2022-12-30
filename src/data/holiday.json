@@ -1,0 +1,50 @@
+[
+  {
+    "name": "새해",
+    "date": [1, 1],
+    "background": "#e97100",
+    "color": "white"
+  },
+  {
+    "name": "3·1절",
+    "date": [3, 1],
+    "background": "#0d7400",
+    "color": "white"
+  },
+  {
+    "name": "어린이날",
+    "date": [5, 5],
+    "background": "#ffe760",
+    "color": "#222"
+  },
+  {
+    "name": "현충일",
+    "date": [6, 6],
+    "background": "#0d7400",
+    "color": "white"
+  },
+  {
+    "name": "광복절",
+    "date": [8, 15],
+    "background": "#222",
+    "color": "white"
+  },
+  {
+    "name": "개천절",
+    "date": [10, 3],
+    "background": "#0042d1",
+    "color": "white"
+  },
+  {
+    "name": "한글날",
+    "date": [10, 9],
+    "background": "#84f1ff",
+    "color": "#222"
+  },
+  {
+    "name": "크리스마스",
+    "date": [12, 25],
+    "background": "#d10000",
+    "color": "white"
+  }
+]
