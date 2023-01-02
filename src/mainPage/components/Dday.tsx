@@ -18,10 +18,14 @@ interface Props {
 }
 
 export const Dday: React.FC = () => {
+  const zeroFormat = (num: number) => {
+    return num.toString().length < 2 ? "0" + String(num) : String(num);
+  };
+
   const [ddayDataG, setDdayDataG] = useRecoilState(ddayDataState);
   const todayG = useRecoilValue(todayState);
   const [dateValue, setDateValue] = useState<string>(
-    `${todayG[0]}-${todayG[1]}-${todayG[2]}`
+    `${todayG[0]}-${zeroFormat(todayG[1])}-${zeroFormat(todayG[2])}`
   );
   const [contentValue, setContentValue] = useState<string>("");
   const [toggleEdit, setToggleEdit] = useState<boolean[]>([false]);
@@ -31,7 +35,9 @@ export const Dday: React.FC = () => {
     if (contentValue !== "") {
       let day = new Date(dateValue);
       let dday = day.getTime();
-      let tday = new Date(`${todayG[0]}-${todayG[1]}-${todayG[2]}`).getTime();
+      let tday = new Date(
+        `${todayG[0]}-${zeroFormat(todayG[1])}-${zeroFormat(todayG[2])}`
+      ).getTime();
       let togo = (dday - tday) / (1000 * 60 * 60 * 24);
       if (togo > 0) {
         setDdayDataG([
@@ -42,7 +48,9 @@ export const Dday: React.FC = () => {
             content: contentValue,
           },
         ]);
-        setDateValue(`${todayG[0]}-${todayG[1]}-${todayG[2]}`);
+        setDateValue(
+          `${todayG[0]}-${zeroFormat(todayG[1])}-${zeroFormat(todayG[2])}`
+        );
         setContentValue("");
         setToggleEdit([...toggleEdit, false]);
         (document.activeElement as HTMLElement).blur();
@@ -55,7 +63,9 @@ export const Dday: React.FC = () => {
             content: contentValue,
           },
         ]);
-        setDateValue(`${todayG[0]}-${todayG[1]}-${todayG[2]}`);
+        setDateValue(
+          `${todayG[0]}-${zeroFormat(todayG[1])}-${zeroFormat(todayG[2])}`
+        );
         setContentValue("");
         setToggleEdit([...toggleEdit, false]);
         (document.activeElement as HTMLElement).blur();
@@ -68,12 +78,18 @@ export const Dday: React.FC = () => {
             content: contentValue,
           },
         ]);
-        setDateValue(`${todayG[0]}-${todayG[1]}-${todayG[2]}`);
+        setDateValue(
+          `${todayG[0]}-${zeroFormat(todayG[1])}-${zeroFormat(todayG[2])}`
+        );
         setContentValue("");
         setToggleEdit([...toggleEdit, false]);
         (document.activeElement as HTMLElement).blur();
       }
     }
+  };
+  const onClickCancel = (idx: number) => {
+    setDdayDataG(ddayDataG.filter((i, id) => idx !== id));
+    setToggleEdit(toggleEdit.filter((i, id) => idx !== id));
   };
   const onPressEnterSend = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -92,12 +108,12 @@ export const Dday: React.FC = () => {
           )
         );
       setEditValue("");
-      document.getElementById(`edit${idx}`)?.blur();
+      document.getElementById(`editDday${idx}`)?.blur();
     }
   };
   const onToggleEdit = (idx: number) => {
     setToggleEdit(toggleEdit.map((i, id) => (id === idx ? !i : false)));
-    document.getElementById(`edit${idx}`)?.focus();
+    document.getElementById(`editDday${idx}`)?.focus();
   };
   const onBlurEdit = (idx: number) => {
     editValue !== "" &&
@@ -107,7 +123,7 @@ export const Dday: React.FC = () => {
         )
       );
     setEditValue("");
-    setToggleEdit(toggleEdit.map((i, id) => (id === idx ? !i : false)));
+    setToggleEdit(toggleEdit.map((i, id) => (id === idx ? false : false)));
   };
 
   return (
@@ -134,7 +150,7 @@ export const Dday: React.FC = () => {
             }}
           />
           <ContentInput
-            placeholder="이벤트를 입력해주세요"
+            placeholder="D-day 이벤트를 입력해주세요"
             value={contentValue}
             maxLength={32}
             onChange={(e) => {
@@ -156,7 +172,7 @@ export const Dday: React.FC = () => {
                   {item.dday}
                 </DDay>
                 <EditInput
-                  id={`edit${idx}`}
+                  id={`editDday${idx}`}
                   type="text"
                   idx={idx}
                   value={editValue}
@@ -185,7 +201,7 @@ export const Dday: React.FC = () => {
                   </EditBtn>
                   <CancelBtn
                     onClick={() => {
-                      setDdayDataG(ddayDataG.filter((i, id) => idx !== id));
+                      onClickCancel(idx);
                     }}
                   >
                     <MdOutlineCancel />
@@ -217,6 +233,11 @@ const Wrapper = styled.section`
   border-radius: 16px;
   padding: 12px;
   gap: 12px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `;
 const Info = styled.div`
   display: flex;
@@ -251,11 +272,6 @@ const DateInput = styled.input`
   &:focus {
     outline: 2px solid #222;
   }
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 `;
 const ContentInfo = styled.div`
   display: flex;
@@ -323,11 +339,6 @@ const DdayList = styled.div`
       background-color: #6668;
     }
   }
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 `;
 const DdayBox = styled.div`
   display: flex;
@@ -389,8 +400,8 @@ const CancelBtn = styled.button`
 const EditInput = styled.input<Props>`
   position: absolute;
   transform: ${(props) =>
-    props.isEdit ? "translate(0,0)" : "translate(-900px,0)"};
-  width: 70%;
+    props.isEdit ? "translate(0,0)" : "translate(-5000px,0)"};
+  width: calc(100% - 140px);
   height: 33px;
   font-family: "다이어리체";
   font-size: 14px;
