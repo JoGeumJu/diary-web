@@ -233,6 +233,7 @@ const Wrapper = styled.section`
   border-radius: 16px;
   padding: 12px;
   gap: 12px;
+  background: #fff7;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -251,6 +252,7 @@ const DateInfo = styled.div`
 const DateInput = styled.input`
   display: flex;
   flex-direction: row-reverse;
+  background: #fff7;
   width: 144px;
   height: 32px;
   font-family: "다이어리체";
@@ -280,6 +282,7 @@ const ContentInfo = styled.div`
   position: relative;
 `;
 const ContentInput = styled.input`
+  background: #fff7;
   width: 100%;
   height: 32px;
   font-family: "다이어리체";
@@ -301,7 +304,7 @@ const ContentInput = styled.input`
 const Send = styled.button`
   display: flex;
   position: relative;
-  background: none;
+  background: #fff7;
   border: 2px solid #0000;
   border-radius: 20px;
   font-size: 20px;
@@ -350,6 +353,7 @@ const DdayBox = styled.div`
   border-radius: 16px;
   box-shadow: 1px 1px 6px -1px #bbb;
   align-items: center;
+  background: #fff7;
 `;
 const DDay = styled.span<Props>`
   display: flex;

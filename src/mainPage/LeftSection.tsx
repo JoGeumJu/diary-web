@@ -14,6 +14,7 @@ export const LeftSection: React.FC = () => {
 
 const Wrapper = styled.section`
   display: flex;
+  z-index: 15;
   flex-direction: column;
   width: 45%;
   height: 100%;
@@ -22,4 +23,5 @@ const Wrapper = styled.section`
   border-radius: 20px;
   box-shadow: 1px 1px 6px -1px #bbb;
   gap: 12px;
+  background: #fff5;
 `;

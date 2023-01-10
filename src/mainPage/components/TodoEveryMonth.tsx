@@ -200,6 +200,7 @@ const Wrapper = styled.section`
   box-shadow: 1px 1px 6px -1px #bbb;
   padding: 16px;
   gap: 8px;
+  background: #fff7;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -230,7 +231,7 @@ const AddBox = styled.div`
 const Send = styled.button`
   display: flex;
   position: relative;
-  background: none;
+  background: #fff7;
   border: 2px solid #0000;
   border-radius: 20px;
   font-size: 20px;
@@ -246,6 +247,7 @@ const Send = styled.button`
   }
 `;
 const AddContent = styled.input`
+  background: #fff7;
   width: 100%;
   height: 32px;
   font-family: "다이어리체";

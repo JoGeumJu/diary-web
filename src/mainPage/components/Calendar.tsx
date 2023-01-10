@@ -9,7 +9,6 @@ import holiday from "../../data/holiday.json";
 import { format, addMonths, subMonths } from "date-fns";
 import { startOfMonth, endOfMonth, startOfWeek, endOfWeek } from "date-fns";
 import { addDays } from "date-fns";
-import { EditModal } from "./EditModal";
 
 interface Props {
   day?: number;
@@ -217,6 +216,7 @@ const Wrapper = styled.section`
   box-shadow: 1px 1px 6px -1px #bbb;
   border-radius: 16px;
   padding: 16px;
+  background: #fff7;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -383,7 +383,7 @@ const Day = styled.td<Props>`
   width: calc(100% / 7);
   height: 100%;
   border-radius: 12px;
-  box-shadow: 1px 1px 5px -2px #bbb inset;
+  box-shadow: 1px 1px 6px -2px #bbb inset;
   margin: 0 2px;
   padding: 6px;
   ${(props) => props.isToday && "background:#ffc8;"}

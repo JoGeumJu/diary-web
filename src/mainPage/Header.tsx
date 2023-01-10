@@ -36,9 +36,11 @@ export const Header: React.FC = () => {
 
 const Wrapper = styled.section`
   display: flex;
+  z-index: 15;
   height: 48px;
   width: 100%;
   padding: 0 24px;
+  background: #fffa;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 1px 4px -1px #bbb;
