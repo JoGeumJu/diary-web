@@ -3,8 +3,23 @@ import styled from "@emotion/styled";
 import { IoSettingsOutline } from "react-icons/io5";
 import { AiOutlineQuestion, AiOutlinePlus } from "react-icons/ai";
 import { keyframes } from "@emotion/react";
+import { memoDataState } from "../../recoil/userData";
+import { useRecoilState } from "recoil";
 
 export const ToggleButtons: React.FC = () => {
+  const [memoDataG, setMemoDataG] = useRecoilState(memoDataState);
+
+  const randomXY = () => {
+    let x = Number(Math.random() * 100);
+    let y = Number(Math.random() * 100);
+    return { x, y };
+  };
+  const { x, y } = randomXY();
+
+  const onClickPlusBtn = () => {
+    setMemoDataG([...memoDataG, { x: x, y: y, content: "", f: true }]);
+  };
+
   return (
     <Wrapper>
       <ToggleBtn>
@@ -13,7 +28,7 @@ export const ToggleButtons: React.FC = () => {
       <ToggleBtn>
         <AiOutlineQuestion />
       </ToggleBtn>
-      <ToggleBtn>
+      <ToggleBtn onClick={onClickPlusBtn}>
         <AiOutlinePlus />
       </ToggleBtn>
     </Wrapper>
